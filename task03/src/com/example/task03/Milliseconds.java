@@ -4,25 +4,29 @@ package com.example.task03;
  * Интервал в миллисекундах
  */
 public class Milliseconds implements TimeUnit {
+    private final long Milliseconds;
 
-    private final long amount;
+    public Milliseconds(long milliseconds) {
+        Milliseconds = milliseconds;
 
-    public Milliseconds(long amount) {
-        this.amount = amount;
     }
 
     @Override
     public long toMillis() {
-        return amount;
+        return Milliseconds;
     }
 
     @Override
     public long toSeconds() {
-        return amount / 1000;
+        return Math.round(Milliseconds / 1000f);
     }
 
     @Override
     public long toMinutes() {
-        return amount / 1000 * 60;
+        return Math.round(Milliseconds / (float) (1000 * 60));
     }
+
+    @Override
+    public long getHours() {
+        return Math.round(Milliseconds / (float) (3600 * 1000));
 }
